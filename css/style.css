@@ -1,0 +1,36 @@
+* {
+    margin: 20px;
+    padding: 10px;
+    width: 400px;
+}
+
+h1 {
+    color: red;
+}
+h3 {
+    color: gray;
+}
+
+.form {
+    border-radius: 10px;
+    margin: 10px;
+    width: 115%;
+    padding: 10px;
+    background-color: #f7f2f2;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+.valid {
+    color: green;
+}
+
+.button {
+    border-radius: 10px;
+    display: block;
+    color: rgb(240, 240, 244);
+    background-color: rgb(21, 123, 206);
+}
+
