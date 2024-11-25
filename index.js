@@ -14,11 +14,14 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     event.preventDefault();
 
     let isValid = true;
+    const form = event.target;
+    const formData = new FormData(form);
 
-    const name = document.getElementById('name').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const name = formData.get('name').trim();
+    const message = formData.get('message').trim();
+    const phone = formData.get('phone').trim();
+    const email = formData.get('email').trim();
+
 
     if (name === '') {
         document.getElementById('nameError').textContent = 'Name is required';
@@ -26,7 +29,6 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     } else {
         document.getElementById('nameError').textContent = '';
     }
-
 
     if (message.length < 5) {
         document.getElementById('messageError').textContent = 'Message must be at least 5 characters';
@@ -37,7 +39,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
 
     const phonePattern = /^\+380[0-9]{9}$/;
     if (!phonePattern.test(phone)) {
-        document.getElementById('phoneError').textContent = 'Номер телефону повинен починатись з +380 і мати 9 цифр';
+        document.getElementById('phoneError').textContent = 'Phone starts: +380 and plus 9 digits';
         isValid = false;
     } else {
         document.getElementById('phoneError').textContent = '';
@@ -45,7 +47,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        document.getElementById('emailError').textContent = 'Неправильний формат email';
+        document.getElementById('emailError').textContent = 'Wrong email format';
         isValid = false;
     } else {
         document.getElementById('emailError').textContent = '';
@@ -58,6 +60,4 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         console.log('Email:', email);
     }
 });
-
-
 
